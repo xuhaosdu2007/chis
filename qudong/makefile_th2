@@ -1,0 +1,11 @@
+all:scan
+scan:scan.o
+	$(CC) -g -fPIC $^ -ldl -lpthread -lrt -lm  -o $@
+
+#%.o:%.cpp 
+#	$(CXX) -g -std=c99 -c -fPIC $<  -o $@
+%.o:%.c
+	$(CC) -g -std=c99 -c -fPIC $< -o $@
+clean:
+	rm *.o
+	rm scan
